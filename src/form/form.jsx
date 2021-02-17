@@ -43,21 +43,21 @@ function Form() {
 
 	const getName = (e) => {
 		e.preventDefault()
-		if(!selectedPokemons.length){
+		if (!selectedPokemons.length) {
 			ApiForm(formField.name)
-			.then((apiData) => {
-				setFormField({
-					...formField,
-					errMsg: ''
+				.then((apiData) => {
+					setFormField({
+						...formField,
+						errMsg: ''
+					})
+					history.push(`/${formField.name}`)
 				})
-				history.push(`/${formField.name}`)
-			})
-			.catch(() => {
-				setFormField({
-					...formField,
-					errMsg: 'Ops, esse pokemon não existe'
+				.catch(() => {
+					setFormField({
+						...formField,
+						errMsg: 'Ops, esse pokemon não existe'
+					})
 				})
-			})
 
 		}
 		else {
@@ -66,7 +66,7 @@ function Form() {
 	}
 
 	const handleSelect = (e) => {
-		if(e.currentTarget.checked){
+		if (e.currentTarget.checked) {
 			const tempState = [...selectedPokemons];
 			setSelectedPokemons([
 				...selectedPokemons,
@@ -76,28 +76,28 @@ function Form() {
 	}
 	console.log(selectedPokemons)
 	const type = [
-		{ label: 'FOGO', img:fire, value: 'fire' },
-		{ label: 'ÁGUA', img:water, value: 'water' },
-		{ label: 'INSETO',img:bug,  value: 'bug' },
-		{ label: 'NORMAL',img:normal,  value: 'normal' },
-		{ label: 'VENOSO',img:poison,  value: 'poison' },
-		{ label: 'ELÉTRICO',img:electric,  value: 'electric' },
-		{ label: 'TERRA',img:ground,  value: 'ground' },
-		{ label: 'LUTADOR',img:fighting,  value: 'fighting' },
-		{ label: 'PSÍQUICO',img:pychic,  value: 'psychic' },
-		{ label: 'PEDRA', img:rock, value: 'rock' },
-		{ label: 'VOADOR',img:flying, value: 'flying' },
-		{ label: 'FANTASMA',img:ghost, value: 'ghost' },
-		{ label: 'GELO',img:ice,  value: 'ice' },
-		{ label: 'DRAGÃO',img:dragon, value: 'dragon' },
-		{ label: 'METÁLICO',img:steel, value: 'steel' },
-		{ label: 'NOTURNO',img:dark, value: 'dark' },
-		{ label: 'FADA',img:fairy,  value: 'fairy' },
+		{ label: 'FOGO', img: fire, value: 'fire' },
+		{ label: 'ÁGUA', img: water, value: 'water' },
+		{ label: 'INSETO', img: bug, value: 'bug' },
+		{ label: 'NORMAL', img: normal, value: 'normal' },
+		{ label: 'VENOSO', img: poison, value: 'poison' },
+		{ label: 'ELÉTRICO', img: electric, value: 'electric' },
+		{ label: 'TERRA', img: ground, value: 'ground' },
+		{ label: 'LUTADOR', img: fighting, value: 'fighting' },
+		{ label: 'PSÍQUICO', img: pychic, value: 'psychic' },
+		{ label: 'PEDRA', img: rock, value: 'rock' },
+		{ label: 'VOADOR', img: flying, value: 'flying' },
+		{ label: 'FANTASMA', img: ghost, value: 'ghost' },
+		{ label: 'GELO', img: ice, value: 'ice' },
+		{ label: 'DRAGÃO', img: dragon, value: 'dragon' },
+		{ label: 'METÁLICO', img: steel, value: 'steel' },
+		{ label: 'NOTURNO', img: dark, value: 'dark' },
+		{ label: 'FADA', img: fairy, value: 'fairy' },
 	]
 
 	return (
 		<>
-			<form  className="form" onSubmit={getName}>
+			<form className="form" onSubmit={getName}>
 				<div className="informations-input">
 					<input
 						type="text"
@@ -119,7 +119,7 @@ function Form() {
 							return (
 								<div className="box-type" key={value.value}>
 									<div>
-										<img className="img-type" src={value.img}/>
+										<img className="img-type" src={value.img} />
 									</div>
 									<label>{value.label}</label>
 									<input className="checkbox" onChange={handleSelect} type='checkbox' value={value.value} />

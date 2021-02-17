@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from '../form/form'
-import 	'../home/home.scss'
+import '../home/home.scss'
 import ash from '../images/ash.png'
 import title from '../images/title.png'
 
@@ -10,13 +10,13 @@ function Home() {
 			<div className="container-home">
 				<div className="box">
 					<div>
-						<img className="ash" src={ash}/>
+						<img className="ash" src={ash} />
 					</div>
 					<div>
-						<img className="title" src={title}/>
+						<img className="title" src={title} />
 					</div>
 				</div>
-				<Form/>
+				<Form />
 			</div>
 		</>
 	)
