@@ -50,7 +50,7 @@ function Form() {
 						...formField,
 						errMsg: ''
 					})
-					history.push(`/${formField.name}`)
+					history.push(`/gh-pages-buscar-pokemon/${formField.name}`)
 				})
 				.catch(() => {
 					setFormField({
@@ -61,7 +61,7 @@ function Form() {
 
 		}
 		else {
-			history.push(`/-${selectedPokemons.join('-')}`)
+			history.push(`/gh-pages-buscar-pokemon/-${selectedPokemons.join('-')}`)
 		}
 	}
 
