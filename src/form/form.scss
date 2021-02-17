@@ -1,2 +1,88 @@
 form {
+    max-width: 1002px;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-top: 35px;
+    align-items: center;
+
+    h2 {
+        color: #fdce40cc;
+    }
+
+    .types {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 70px;
+
+        .box-type {
+            margin-right: 20px;
+            background-color: #0c3b6b38;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            height: 51px;
+            width: 136px;
+            color: white;
+            padding: 0px 15px 0px 15px;
+
+            .checkbox {
+                margin-left: 9px;
+            }
+
+            .img-type {
+                width: 35px;
+                margin-right: 8px;
+            }
+        }
+    }
+    .informations-input {
+        display: flex;
+
+        .input_form {
+            height: 30px;
+            width: 233px;
+            border-radius: 5px;
+            background-color: transparent;
+            border-color: #f3dd18;
+            border-width: 1px;
+            outline: 0;
+            padding-left: 8px;
+        }
+
+        input::placeholder {
+            color: #f3dd18;
+        }
+        .search {
+            background-image: url("../images/pokebola.png");
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+            outline: 0;
+            color: white;
+
+            .pokebola {
+                width: 25px;
+            }
+        }
+    }
+
+    .box-submit {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        .submit {
+            height: 30px;
+            width: 143px;
+            border-radius: 5px;
+            background-color: #194a84;
+            outline: 0;
+            padding-left: 8px;
+            color: #e7ebf1;
+            cursor: pointer;
+        }
+    }
 }

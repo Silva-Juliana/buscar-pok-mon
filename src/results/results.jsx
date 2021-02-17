@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ApiForm from '../form/apiForm'
 import TypePokemonApi from '../form/TypePokemonApi'
+import '../results/results.scss'
+import girl from '../images/girl.png'
+import logo from '../images/logo.png'
 
 
 function Results() {
@@ -31,6 +34,14 @@ function Results() {
     const [darkList, setDarkList] = useState([])
     const [fairyList, setFairyList] = useState([])
 
+    const pokemonData = (typeResults) => {
+        return typeResults.pokemon.map((value) => {
+            return {
+                name: value.pokemon.name
+            }
+        })
+    }
+
     useEffect(() => {
         if (params.pokemonName) {
             if (params.pokemonName.charAt(0) === '-') {
@@ -40,55 +51,55 @@ function Results() {
                     TypePokemonApi(value)
                         .then(res => {
                             if (value === 'fire') {
-                                setFireList()
+                                setFireList(pokemonData(res))
                             }
                             if (value === 'water') {
-                                setWaterList();
+                                setWaterList([]);
                             }
                             if (value === 'bug') {
-                                setBugList();
+                                setBugList([]);
                             }
                             if (value === 'normal') {
-                                setNormalList();
+                                setNormalList([]);
                             }
                             if (value === 'poison') {
-                                setPoisonList();
+                                setPoisonList([]);
                             }
                             if (value === 'electric') {
-                                setElectricList();
+                                setElectricList([]);
                             }
                             if (value === 'ground') {
-                                setGroundList();
+                                setGroundList([]);
                             }
                             if (value === 'fighting') {
-                                setFightingList();
+                                setFightingList([]);
                             }
                             if (value === 'psychic') {
-                                setPsychicList();
+                                setPsychicList([]);
                             }
                             if (value === 'rock') {
-                                setRockList();
+                                setRockList([]);
                             }
                             if (value === 'flying') {
-                                setFlyingList();
+                                setFlyingList([]);
                             }
                             if (value === 'ghost') {
-                                setGhostList();
+                                setGhostList([]);
                             }
                             if (value === 'ice') {
-                                setIceList();
+                                setIceList([]);
                             }
                             if (value === 'dragon') {
                                 setDragonList();
                             }
                             if (value === 'steel') {
-                                setSteelList();
+                                setSteelList([]);
                             }
                             if (value === 'dark') {
-                                setDarkList();
+                                setDarkList([]);
                             }
                             if (value === 'fairy') {
-                                setFairyList();
+                                setFairyList([]);
                             }
                         })
                 })
@@ -105,14 +116,21 @@ function Results() {
             }
         }
     }, [params.pokemonName])
-
+    console.log(fireList)
     return (
         <>
-            <div>
-                <div>
+            <div className="container-results">
+                    <div className="box-logo">
+                        <img className="logo" src={logo}/>
+                    </div>
+                <div className="box-results">
                     <div className="card">
                         <img className="photo-pokemon" src={pokemon.photo} />
-                        <span className="name-pokemon">{pokemon.name}</span>
+                        <hr/>
+                        <span className="name-pokemon">Nome: {pokemon.name}</span>
+                    </div>
+                    <div className="box-img-results">
+                        <img className="img-results" src={girl}/>
                     </div>
                     {
                         fireList.map(value => {

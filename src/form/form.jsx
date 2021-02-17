@@ -1,9 +1,25 @@
 import React, { useState } from 'react'
 import ApiForm from '../form/apiForm'
-import { Link } from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 import '../form/form.scss'
-import TypePokemonApi from './TypePokemonApi';
+import pokebola from '../images/pokebola.png'
+import steel from '../images/steel.png'
+import fire from '../images/fire.png'
+import water from '../images/water.png'
+import bug from '../images/bug.png'
+import normal from '../images/normal.png'
+import poison from '../images/poison.png'
+import electric from '../images/electric.png'
+import ground from '../images/ground.png'
+import fighting from '../images/fighting.png'
+import pychic from '../images/pychic.png'
+import rock from '../images/rock.png'
+import flying from '../images/flying.png'
+import ghost from '../images/ghost.png'
+import ice from '../images/ice.png'
+import dragon from '../images/dragon.png'
+import dark from '../images/dark.png'
+import fairy from '../images/fairy.png'
 
 
 function Form() {
@@ -51,6 +67,7 @@ function Form() {
 
 	const handleSelect = (e) => {
 		if(e.currentTarget.checked){
+			const tempState = [...selectedPokemons];
 			setSelectedPokemons([
 				...selectedPokemons,
 				e.currentTarget.value
@@ -59,51 +76,61 @@ function Form() {
 	}
 	console.log(selectedPokemons)
 	const type = [
-		{ label: 'FOGO', value: 'fire' },
-		{ label: 'ÁGUA', value: 'water' },
-		{ label: 'INSETO', value: 'bug' },
-		{ label: 'NORMAL', value: 'normal' },
-		{ label: 'VENOSO', value: 'poison' },
-		{ label: 'ELÉTRICO', value: 'electric' },
-		{ label: 'TERRA', value: 'ground' },
-		{ label: 'LUTADOR', value: 'fighting' },
-		{ label: 'PSÍQUICO', value: 'psychic' },
-		{ label: 'PEDRA', value: 'rock' },
-		{ label: 'VOADOR', value: 'flying' },
-		{ label: 'FANTASMA', value: 'ghost' },
-		{ label: 'GELO', value: 'ice' },
-		{ label: 'DRAGÃO', value: 'dragon' },
-		{ label: 'METÁLICO', value: 'steel' },
-		{ label: 'NOTURNO', value: 'dark' },
-		{ label: 'FADA', value: 'fairy' },
+		{ label: 'FOGO', img:fire, value: 'fire' },
+		{ label: 'ÁGUA', img:water, value: 'water' },
+		{ label: 'INSETO',img:bug,  value: 'bug' },
+		{ label: 'NORMAL',img:normal,  value: 'normal' },
+		{ label: 'VENOSO',img:poison,  value: 'poison' },
+		{ label: 'ELÉTRICO',img:electric,  value: 'electric' },
+		{ label: 'TERRA',img:ground,  value: 'ground' },
+		{ label: 'LUTADOR',img:fighting,  value: 'fighting' },
+		{ label: 'PSÍQUICO',img:pychic,  value: 'psychic' },
+		{ label: 'PEDRA', img:rock, value: 'rock' },
+		{ label: 'VOADOR',img:flying, value: 'flying' },
+		{ label: 'FANTASMA',img:ghost, value: 'ghost' },
+		{ label: 'GELO',img:ice,  value: 'ice' },
+		{ label: 'DRAGÃO',img:dragon, value: 'dragon' },
+		{ label: 'METÁLICO',img:steel, value: 'steel' },
+		{ label: 'NOTURNO',img:dark, value: 'dark' },
+		{ label: 'FADA',img:fairy,  value: 'fairy' },
 	]
 
 	return (
 		<>
-			<form onSubmit={getName}>
-				<input
-					type="text"
-					onChange={setName}
-					value={formField.name}
-					className='input_form'
-					name='name'
-					placeholder="Nome do pókemon"
-				/>
-				<button type="submit">Buscar</button>
+			<form  className="form" onSubmit={getName}>
+				<div className="informations-input">
+					<input
+						type="text"
+						onChange={setName}
+						value={formField.name}
+						className='input_form'
+						name='name'
+						placeholder="Nome do pókemon"
+					/>
+					<button className="search" type="submit">
+						<img className="pokebola" src={pokebola} />
+					</button>
+				</div>
 				<p>{formField.errMsg}</p>
-				<div>
+				<h2> OU escolha 1 ou mais tipos de Pokémon</h2>
+				<div className="types">
 					{
 						type.map((value) => {
 							return (
-								<div key={value.value}>
+								<div className="box-type" key={value.value}>
+									<div>
+										<img className="img-type" src={value.img}/>
+									</div>
 									<label>{value.label}</label>
-									<input onChange={handleSelect} type='checkbox' value={value.value} />
+									<input className="checkbox" onChange={handleSelect} type='checkbox' value={value.value} />
 								</div>
 							)
 						})
 					}
 				</div>
-				<button type="submit">Buscar</button>
+				<div className="box-submit">
+					<button className="submit" type="submit">Buscar</button>
+				</div>
 			</form>
 		</>
 	)
