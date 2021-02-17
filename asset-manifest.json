@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gh-pages-buscar-pokemon/static/css/main.56f7204d.chunk.css",
-    "main.js": "/gh-pages-buscar-pokemon/static/js/main.892770b7.chunk.js",
-    "main.js.map": "/gh-pages-buscar-pokemon/static/js/main.892770b7.chunk.js.map",
+    "main.js": "/gh-pages-buscar-pokemon/static/js/main.c20d74c8.chunk.js",
+    "main.js.map": "/gh-pages-buscar-pokemon/static/js/main.c20d74c8.chunk.js.map",
     "runtime-main.js": "/gh-pages-buscar-pokemon/static/js/runtime-main.6620faa5.js",
     "runtime-main.js.map": "/gh-pages-buscar-pokemon/static/js/runtime-main.6620faa5.js.map",
     "static/js/2.3127ed66.chunk.js": "/gh-pages-buscar-pokemon/static/js/2.3127ed66.chunk.js",
@@ -39,6 +39,6 @@
     "static/js/runtime-main.6620faa5.js",
     "static/js/2.3127ed66.chunk.js",
     "static/css/main.56f7204d.chunk.css",
-    "static/js/main.892770b7.chunk.js"
+    "static/js/main.c20d74c8.chunk.js"
   ]
 }
